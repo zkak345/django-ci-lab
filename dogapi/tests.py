@@ -33,5 +33,6 @@ class DogAPITestCase(TestCase):
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(Dog.objects.count(), 0)
 
-    def failing_test(self):
-        self.assertEqual(0, 1)
+    def test_fail_on_purpose(self):
+        """This test is designed to fail."""
+        self.assertEqual(1, 0, "Intentional failure to test CI pipeline")
